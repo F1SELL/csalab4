@@ -1,0 +1,10 @@
+{
+  "format": "lab4-microcode-v1-doc",
+  "note": "Runtime control store is in microcode/micro_rom.py (MROM[], MROM_DESC[], DECODER[]). This file is documentation only.",
+  "fetch_microsteps": 2,
+  "fetch": [
+    {"uPC": 0, "desc": "IR <- Mem[PC]"},
+    {"uPC": 1, "desc": "uPC <- DECODER[IR.opcode]"}
+  ],
+  "exec": "one microinstruction per Opcode at DECODER[opcode], then uPC <- 0"
+}
