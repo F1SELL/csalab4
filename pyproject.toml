@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lab4"
+version = "0.1.0"
+description = "Lab4 translator and tick-accurate machine model"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-q"
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = ["brainfuck-master"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+check_untyped_defs = true
+no_implicit_optional = true
+strict_equality = true
+exclude = ["brainfuck-master/"]
