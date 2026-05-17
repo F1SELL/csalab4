@@ -8,6 +8,7 @@ import sys
 from dataclasses import dataclass
 from typing import Any
 
+from ast_format import format_program_ast
 from isa import Instruction, Opcode, to_bytes, to_hex_listing
 
 PORT_IN = 0
@@ -370,6 +371,11 @@ def write_program(path: str, program: Program):
         json.dump({"data": program.data, "labels": program.data_labels}, f, ensure_ascii=False, indent=2)
     with open(path + ".ast.json", "w", encoding="utf-8") as f:
         json.dump(program.ast, f, ensure_ascii=False, indent=2)
+    ast_text = format_program_ast(program.ast)
+    if not ast_text.endswith("\n"):
+        ast_text += "\n"
+    with open(path + ".ast.txt", "w", encoding="utf-8") as f:
+        f.write(ast_text)
 
 
 def main(src_path: str, out_path: str):
