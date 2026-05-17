@@ -1,0 +1,68 @@
+(begin
+  ("defun" "is_digit" ("ch") ("if" ("<" "ch" 48) 0 ("if" (">" "ch" 57) 0 1)))
+  ("defun" "read_number" ()   (begin
+    ("setq" "acc" 0)
+    ("setq" "started" 0)
+    ("setq" "cont" 1)
+    ("loop" "cont"     (begin
+      ("setq" "ch" ("in" 0))
+      ("if" ("=" ("is_digit" "ch") 1)       (begin
+        ("setq" "started" 1)
+        ("setq" "acc" ("+" ("*" "acc" 10) ("-" "ch" 48)))
+      ) ("if" ("=" "started" 1) ("setq" "cont" 0) 0))
+    ))
+    "acc"
+  ))
+  ("defun" "print_digit" ("d") ("out" 1 ("+" 48 "d")))
+  ("defun" "print_number" ("n") ("if" ("<" "n" 10) ("print_digit" "n")   (begin
+    ("print_number" ("/" "n" 10))
+    ("print_digit" ("%" "n" 10))
+  )))
+  ("defun" "is_pal" ("x")   (begin
+    ("setq" "tmp" "x")
+    ("setq" "rev" 0)
+    ("loop" (">" "tmp" 0)     (begin
+      ("setq" "rev" ("+" ("*" "rev" 10) ("%" "tmp" 10)))
+      ("setq" "tmp" ("/" "tmp" 10))
+    ))
+    ("if" ("=" "rev" "x") 1 0)
+  ))
+    (begin
+    ("setq" "tens" ("-" ("in" 0) 48))
+    ("setq" "ones" ("-" ("in" 0) 48))
+    ("in" 0)
+    ("setq" "n" ("+" ("*" "tens" 10) "ones"))
+    ("setq" "i" 10)
+    ("setq" "best" 0)
+    ("loop" ("<=" "i" "n")     (begin
+      ("setq" "j" "i")
+      ("loop" ("<=" "j" "n")       (begin
+        ("setq" "p" ("*" "i" "j"))
+        ("setq" "tmp" "p")
+        ("setq" "rev" 0)
+        ("loop" (">" "tmp" 0)         (begin
+          ("setq" "rev" ("+" ("*" "rev" 10) ("%" "tmp" 10)))
+          ("setq" "tmp" ("/" "tmp" 10))
+        ))
+        ("if" ("=" "rev" "p") ("if" (">" "p" "best") ("setq" "best" "p") 0) 0)
+        ("setq" "j" ("+" "j" 1))
+      ))
+      ("setq" "i" ("+" "i" 1))
+    ))
+    ("setq" "h" ("/" "best" 100))
+    ("setq" "rem" ("%" "best" 100))
+    ("setq" "t" ("/" "rem" 10))
+    ("setq" "o" ("%" "rem" 10))
+    ("setq" "printed" 0)
+    ("if" (">" "h" 0)     (begin
+      ("out" 1 ("+" 48 "h"))
+      ("setq" "printed" 1)
+    ) 0)
+    ("if" (">" "t" 0)     (begin
+      ("out" 1 ("+" 48 "t"))
+      ("setq" "printed" 1)
+    ) ("if" ("=" "printed" 1) ("out" 1 ("+" 48 "t")) 0))
+    ("out" 1 ("+" 48 "o"))
+    ("out" 1 10)
+  )
+)

@@ -1,0 +1,7 @@
+(begin
+  ("setq" "ch" ("in" 0))
+  ("repeat"   (begin
+    ("out" 1 "ch")
+    ("setq" "ch" ("in" 0))
+  ))
+)

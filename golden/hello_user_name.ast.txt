@@ -1,0 +1,14 @@
+(begin
+  ("defun" "echo_name" ("ch") ("if" ("=" "ch" 10) 0   (begin
+    ("out" 1 "ch")
+    ("echo_name" ("in" 0))
+  )))
+    (begin
+    ("print" ("str" "What is your name?
+"))
+    ("print" ("str" "Hello, "))
+    ("echo_name" ("in" 0))
+    ("print" ("str" "!
+"))
+  )
+)

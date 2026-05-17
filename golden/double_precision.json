@@ -1,0 +1,13 @@
+{
+  "name": "double_precision",
+  "source": "examples/double_precision.lisp",
+  "input": "tests/data/double_precision_input.txt",
+  "expected_output": "6:3\n",
+  "required_log_contains": [
+    "uPC=0 IR <- Mem[PC]",
+    "uPC=1 uPC <- DECODER[IR.opcode]"
+  ],
+  "log_file": "double_precision.log.txt",
+  "ast_file": "double_precision.ast.txt",
+  "expected_ticks": 316
+}

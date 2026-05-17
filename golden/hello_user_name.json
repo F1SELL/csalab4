@@ -1,0 +1,13 @@
+{
+  "name": "hello_user_name",
+  "source": "examples/hello_user_name.lisp",
+  "input": "tests/data/hello_user_input.txt",
+  "expected_output": "What is your name?\nHello, Alice!\n",
+  "required_log_contains": [
+    "uPC=0 IR <- Mem[PC]",
+    "uPC=1 uPC <- DECODER[IR.opcode]"
+  ],
+  "log_file": "hello_user_name.log.txt",
+  "ast_file": "hello_user_name.ast.txt",
+  "expected_ticks": 442
+}

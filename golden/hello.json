@@ -1,0 +1,13 @@
+{
+  "name": "hello",
+  "source": "examples/hello.lisp",
+  "input": "examples/empty.txt",
+  "expected_output": "Hello, world!\n",
+  "required_log_contains": [
+    "uPC=0 IR <- Mem[PC]",
+    "uPC=1 uPC <- DECODER[IR.opcode]"
+  ],
+  "log_file": "hello.log.txt",
+  "ast_file": "hello.ast.txt",
+  "expected_ticks": 87
+}

@@ -1,0 +1,13 @@
+{
+  "name": "cat",
+  "source": "examples/cat.lisp",
+  "input": "tests/data/cat_input.txt",
+  "expected_output": "stream-cat-test\n\n",
+  "required_log_contains": [
+    "uPC=0 IR <- Mem[PC]",
+    "uPC=1 uPC <- DECODER[IR.opcode]"
+  ],
+  "log_file": "cat.log.txt",
+  "ast_file": "cat.ast.txt",
+  "expected_ticks": 308
+}

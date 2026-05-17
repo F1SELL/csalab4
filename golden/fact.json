@@ -1,0 +1,13 @@
+{
+  "name": "fact",
+  "source": "examples/fact.lisp",
+  "input": "examples/empty.txt",
+  "expected_output": "x",
+  "required_log_contains": [
+    "uPC=0 IR <- Mem[PC]",
+    "uPC=1 uPC <- DECODER[IR.opcode]"
+  ],
+  "log_file": "fact.log.txt",
+  "ast_file": "fact.ast.txt",
+  "expected_ticks": 397
+}
